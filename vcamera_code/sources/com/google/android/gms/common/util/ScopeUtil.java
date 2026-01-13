@@ -1,0 +1,26 @@
+package com.google.android.gms.common.util;
+
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.common.internal.Preconditions;
+import java.util.Set;
+import o00oOooO.oo0oO0;
+@KeepForSdk
+/* loaded from: classes.dex */
+public final class ScopeUtil {
+    private ScopeUtil() {
+    }
+
+    @oo0oO0
+    @KeepForSdk
+    public static String[] toScopeString(@oo0oO0 Set<Scope> set) {
+        Preconditions.checkNotNull(set, "scopes can't be null.");
+        Scope[] scopeArr = (Scope[]) set.toArray(new Scope[set.size()]);
+        Preconditions.checkNotNull(scopeArr, "scopes can't be null.");
+        String[] strArr = new String[scopeArr.length];
+        for (int i = 0; i < scopeArr.length; i++) {
+            strArr[i] = scopeArr[i].getScopeUri();
+        }
+        return strArr;
+    }
+}

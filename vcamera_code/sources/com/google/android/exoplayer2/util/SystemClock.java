@@ -1,0 +1,31 @@
+package com.google.android.exoplayer2.util;
+
+import android.os.Handler;
+import android.os.Looper;
+import o00oOooO.o0OO00OO;
+/* loaded from: classes.dex */
+public class SystemClock implements Clock {
+    @Override // com.google.android.exoplayer2.util.Clock
+    public HandlerWrapper createHandler(Looper looper, @o0OO00OO Handler.Callback callback) {
+        return new SystemHandlerWrapper(new Handler(looper, callback));
+    }
+
+    @Override // com.google.android.exoplayer2.util.Clock
+    public long currentTimeMillis() {
+        return System.currentTimeMillis();
+    }
+
+    @Override // com.google.android.exoplayer2.util.Clock
+    public long elapsedRealtime() {
+        return android.os.SystemClock.elapsedRealtime();
+    }
+
+    @Override // com.google.android.exoplayer2.util.Clock
+    public void onThreadBlocked() {
+    }
+
+    @Override // com.google.android.exoplayer2.util.Clock
+    public long uptimeMillis() {
+        return android.os.SystemClock.uptimeMillis();
+    }
+}

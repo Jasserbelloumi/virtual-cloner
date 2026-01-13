@@ -1,0 +1,35 @@
+package com.google.android.exoplayer2.ui;
+
+import o00oOooO.o0OO00OO;
+/* loaded from: classes.dex */
+public interface TimeBar {
+
+    /* loaded from: classes.dex */
+    public interface OnScrubListener {
+        void onScrubMove(TimeBar timeBar, long j);
+
+        void onScrubStart(TimeBar timeBar, long j);
+
+        void onScrubStop(TimeBar timeBar, long j, boolean z);
+    }
+
+    void addListener(OnScrubListener onScrubListener);
+
+    long getPreferredUpdateDelay();
+
+    void removeListener(OnScrubListener onScrubListener);
+
+    void setAdGroupTimesMs(@o0OO00OO long[] jArr, @o0OO00OO boolean[] zArr, int i);
+
+    void setBufferedPosition(long j);
+
+    void setDuration(long j);
+
+    void setEnabled(boolean z);
+
+    void setKeyCountIncrement(int i);
+
+    void setKeyTimeIncrement(long j);
+
+    void setPosition(long j);
+}

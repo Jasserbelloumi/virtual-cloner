@@ -1,0 +1,14 @@
+package com.google.android.gms.internal.ads;
+/* loaded from: classes2.dex */
+public final class zzckl implements zzgwy {
+    private final zzckh zza;
+
+    public zzckl(zzckh zzckhVar) {
+        this.zza = zzckhVar;
+    }
+
+    @Override // com.google.android.gms.internal.ads.zzgxl
+    public final /* synthetic */ Object zzb() {
+        return new zzbrh();
+    }
+}

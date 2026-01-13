@@ -1,0 +1,28 @@
+package com.google.android.gms.internal.ads;
+
+import android.content.Context;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import java.io.IOException;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes2.dex */
+public final class zzbxz implements Runnable {
+    public final /* synthetic */ Context zza;
+    public final /* synthetic */ zzbzs zzb;
+
+    public zzbxz(zzbya zzbyaVar, Context context, zzbzs zzbzsVar) {
+        this.zza = context;
+        this.zzb = zzbzsVar;
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        try {
+            this.zzb.zzd(AdvertisingIdClient.getAdvertisingIdInfo(this.zza));
+        } catch (GooglePlayServicesNotAvailableException | GooglePlayServicesRepairableException | IOException | IllegalStateException e) {
+            this.zzb.zze(e);
+            zzbza.zzh("Exception while getting advertising Id info", e);
+        }
+    }
+}

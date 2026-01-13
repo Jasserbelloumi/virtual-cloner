@@ -1,0 +1,32 @@
+package org.osmdroid.util;
+/* loaded from: classes3.dex */
+public class IntegerAccepter {
+    private int mIndex;
+    private final int[] mValues;
+
+    public IntegerAccepter(int i) {
+        this.mValues = new int[i];
+    }
+
+    public void add(int i) {
+        int[] iArr = this.mValues;
+        int i2 = this.mIndex;
+        this.mIndex = i2 + 1;
+        iArr[i2] = i;
+    }
+
+    public void end() {
+    }
+
+    public void flush() {
+        this.mIndex = 0;
+    }
+
+    public int getValue(int i) {
+        return this.mValues[i];
+    }
+
+    public void init() {
+        this.mIndex = 0;
+    }
+}

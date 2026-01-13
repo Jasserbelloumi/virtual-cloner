@@ -1,0 +1,15 @@
+package com.google.android.gms.internal.location;
+/* loaded from: classes2.dex */
+final class zzdq extends zzdo {
+    private final zzds zza;
+
+    public zzdq(zzds zzdsVar, int i) {
+        super(zzdsVar.size(), i);
+        this.zza = zzdsVar;
+    }
+
+    @Override // com.google.android.gms.internal.location.zzdo
+    public final Object zza(int i) {
+        return this.zza.get(i);
+    }
+}

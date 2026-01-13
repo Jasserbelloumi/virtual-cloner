@@ -1,0 +1,11 @@
+package com.google.android.gms.ads.internal.client;
+
+import android.os.IBinder;
+import android.os.IInterface;
+import com.google.android.gms.internal.ads.zzasv;
+/* loaded from: classes.dex */
+public final class zzcf extends zzasv implements IInterface {
+    public zzcf(IBinder iBinder) {
+        super(iBinder, "com.google.android.gms.ads.internal.client.ICorrelationIdProvider");
+    }
+}

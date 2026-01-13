@@ -1,0 +1,23 @@
+package androidx.window.layout;
+
+import android.graphics.Point;
+import android.view.Display;
+import kotlin.Metadata;
+import o00oOooO.o0OOooO0;
+import o0OOOOO0.o0ooO;
+import org.jetbrains.annotations.NotNull;
+@o0OOooO0(17)
+@Metadata(bv = {}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\bÁ\u0002\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\b\u0010\tJ\u0016\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004¨\u0006\n"}, d2 = {"Landroidx/window/layout/o00oOoO;", "", "Landroid/view/Display;", "display", "Landroid/graphics/Point;", "point", "Lo0OO0o/oO0Ooooo;", "o00oOOo0", "<init>", "()V", "window_release"}, k = 1, mv = {1, 6, 0})
+/* loaded from: classes.dex */
+public final class o00oOoO {
+    @NotNull
+
+    /* renamed from: o00oOOo0  reason: collision with root package name */
+    public static final o00oOoO f5480o00oOOo0 = new o00oOoO();
+
+    public final void o00oOOo0(@NotNull Display display, @NotNull Point point) {
+        o0ooO.o00oo0O0(display, "display");
+        o0ooO.o00oo0O0(point, "point");
+        display.getRealSize(point);
+    }
+}

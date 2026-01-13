@@ -1,0 +1,31 @@
+package com.google.android.gms.internal.ads;
+
+import android.os.ParcelFileDescriptor;
+import android.os.RemoteException;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes2.dex */
+public final class zzdxl implements zzfuf {
+    public final /* synthetic */ zzbtj zza;
+
+    public zzdxl(zzdxp zzdxpVar, zzbtj zzbtjVar) {
+        this.zza = zzbtjVar;
+    }
+
+    @Override // com.google.android.gms.internal.ads.zzfuf
+    public final void zza(Throwable th) {
+        try {
+            this.zza.zze(com.google.android.gms.ads.internal.util.zzaz.zzb(th));
+        } catch (RemoteException e) {
+            com.google.android.gms.ads.internal.util.zze.zzb("Service can't call client", e);
+        }
+    }
+
+    @Override // com.google.android.gms.internal.ads.zzfuf
+    public final /* bridge */ /* synthetic */ void zzb(Object obj) {
+        try {
+            this.zza.zzf((ParcelFileDescriptor) obj);
+        } catch (RemoteException e) {
+            com.google.android.gms.ads.internal.util.zze.zzb("Service can't call client", e);
+        }
+    }
+}
