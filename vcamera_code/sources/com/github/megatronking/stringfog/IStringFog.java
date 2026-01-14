@@ -1,9 +1,0 @@
-package com.github.megatronking.stringfog;
-/* loaded from: classes.dex */
-public interface IStringFog {
-    String decrypt(byte[] bArr, byte[] bArr2);
-
-    byte[] encrypt(String str, byte[] bArr);
-
-    boolean shouldFog(String str);
-}
