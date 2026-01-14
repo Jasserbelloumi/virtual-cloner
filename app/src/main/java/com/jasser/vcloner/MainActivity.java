@@ -1,47 +1,47 @@
 package com.jasser.vcloner;
 
 import android.app.Activity;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends Activity {
-    private ListView appsListView;
+    private static final int PICK_VIDEO_REQUEST = 1;
+    private TextView statusText;
+    private Uri selectedVideoUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        appsListView = findViewById(R.id.appsListView);
-        loadInstalledApps();
+
+        statusText = findViewById(R.id.statusText);
+        Button selectBtn = findViewById(R.id.selectVideoBtn);
+        Button startBtn = findViewById(R.id.startInjectionBtn);
+
+        selectBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(intent, PICK_VIDEO_REQUEST);
+        });
+
+        startBtn.setOnClickListener(v -> {
+            if (selectedVideoUri != null) {
+                Toast.makeText(this, "الكاميرا الوهمية جاهزة الآن!", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "يرجى اختيار فيديو أولاً", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    private void loadInstalledApps() {
-        PackageManager pm = getPackageManager();
-        List<String> appNames = new ArrayList<>();
-        // جلب قائمة التطبيقات المثبتة
-        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
-
-        for (ApplicationInfo packageInfo : packages) {
-            // فلترة التطبيقات التي يمكن تشغيلها فقط (تطبيقات الواجهة)
-            if (pm.getLaunchIntentForPackage(packageInfo.packageName) != null) {
-                appNames.add(packageInfo.loadLabel(pm).toString() + "\n" + packageInfo.packageName);
-            }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_VIDEO_REQUEST && resultCode == RESULT_OK && data != null) {
+            selectedVideoUri = data.getData();
+            statusText.setText("الفيديو جاهز: " + selectedVideoUri.getLastPathSegment());
         }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, appNames);
-        appsListView.setAdapter(adapter);
-
-        appsListView.setOnItemClickListener((parent, view, position, id) -> {
-            String selected = appNames.get(position);
-            String packageName = selected.substring(selected.lastIndexOf("\n") + 1);
-            Toast.makeText(this, "تم اختيار: " + packageName, Toast.LENGTH_SHORT).show();
-        });
     }
 }
