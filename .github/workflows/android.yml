@@ -14,21 +14,16 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    - name: Download VLC Library inside GitHub
-      run: |
-        mkdir -p app/libs
-        curl -L https://repo1.maven.org/maven2/org/videolan/android/libvlc-all/3.5.1/libvlc-all-3.5.1.aar -o app/libs/libvlc.aar
-
-    - name: Setup Gradle 8.1
+    - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
         gradle-version: 8.1
 
-    - name: Build with Gradle
+    - name: Build APK
       run: gradle assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: VirtualCloner-Final-Build
+        name: VirtualCloner-Ready
         path: app/build/outputs/apk/debug/app-debug.apk

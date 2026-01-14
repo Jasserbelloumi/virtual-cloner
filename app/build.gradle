@@ -20,5 +20,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // تحميل مكتبة VLC الرسمية مباشرة من الإنترنت أثناء البناء
+    implementation 'org.videolan.android:libvlc-all:3.5.1'
 }
