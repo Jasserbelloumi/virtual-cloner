@@ -8,11 +8,14 @@
 
     <application
         android:allowBackup="true"
-        android:label="Virtual Cloner"
+        android:label="Virtual Cloner Pro"
         android:theme="@android:style/Theme.DeviceDefault">
         
-        <activity android:name=".MainActivity"
-            android:exported="true">
+        <meta-data android:name="xposedmodule" android:value="true" />
+        <meta-data android:name="xposeddescription" android:value="Advanced Virtual Camera Engine" />
+        <meta-data android:name="xposedminversion" android:value="93" />
+
+        <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -20,4 +23,3 @@
         </activity>
     </application>
 </manifest>
-
