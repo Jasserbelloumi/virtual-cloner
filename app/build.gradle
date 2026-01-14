@@ -1,0 +1,27 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.jasser.vcloner'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.jasser.vcloner"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    // هنا سيتم ربط مكتبات VLC التي وضعناها في jniLibs تلقائياً
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
