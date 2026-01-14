@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         // تهيئة المحرك والحاقن
-        vlcPlayer = new VlcPlayer(this);
+        vlcPlayer = new VlcPlayer();
         cameraHook = new CameraHook(vlcPlayer);
 
         Button btnPick = findViewById(R.id.btn_pick_video);
